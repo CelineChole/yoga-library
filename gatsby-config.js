@@ -46,7 +46,7 @@ module.exports = {
       options: {
           spreadsheetId: '13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E',
           worksheetTitle: 'Master',
-          credentials: require('./client_secret.json')
+          credentials: require('./client_secret')
       }
   },
     // this (optional) plugin enables Progressive Web App + Offline functionality

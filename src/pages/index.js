@@ -21,3 +21,15 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  query videos {
+    allGoogleSheetMaster {
+      edges {
+        node {
+          level
+        }
+      }
+    }
+  }
+`
