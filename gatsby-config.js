@@ -41,6 +41,14 @@ module.exports = {
         tailwind: true,
       },
     },
+    {
+      resolve: 'gatsby-source-google-sheets',
+      options: {
+          spreadsheetId: 'get this from the sheet url',
+          worksheetTitle: 'ie the name in the worksheet tab',
+          credentials: require('./path-to-credentials-file.json')
+      }
+  },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
