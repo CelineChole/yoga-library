@@ -5,6 +5,8 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+import { graphql } from "gatsby"
+
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
@@ -19,3 +21,16 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const data = graphql`
+  query {
+    allGoogleSpreadsheetMaster{
+      edges {
+        node {
+            Level
+            Channel
+        }
+      }
+    }
+  }
+`
