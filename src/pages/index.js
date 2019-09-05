@@ -21,16 +21,3 @@ const IndexPage = () => (
 )
 
 export default IndexPage
-
-export const data = graphql`
-  query {
-    allGoogleSpreadsheetMaster{
-      edges {
-        node {
-            Level
-            Channel
-        }
-      }
-    }
-  }
-`
