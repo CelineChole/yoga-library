@@ -1,15 +1,38 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-const YouTubeChannel = () => (
-  <>
-    <SEO title="YouTube Channel" />
-    <h1>Welcome to the YouTube Channel list</h1>
-    <p></p>
-    <Link to="/">Go back to the homepage</Link>
-  </>
-)
+const YouTubeChannel = props => {
+  const channels = props.data.allGoogleSheetMasterRow.nodes
+
+  let uniqueChannel = new Set()
+  uniqueChannel = channels.filter(channel => {
+    if (!uniqueChannel.has(channel.channel)) {
+      return uniqueChannel.add(channel.channel)
+    }
+  })
+
+  return (
+    <>
+      <SEO title="YouTube Channel" />
+      <h1>Filter by Channel</h1>
+      {uniqueChannel.map(c => {
+        return <div key={c.channel}>{c.channel}</div>
+      })}
+      <Link to="/">Go back to the homepage</Link>
+    </>
+  )
+}
 
 export default YouTubeChannel
+
+export const data = graphql`
+  query youtubeChannelQueery {
+    allGoogleSheetMasterRow {
+      nodes {
+        channel
+      }
+    }
+  }
+`
