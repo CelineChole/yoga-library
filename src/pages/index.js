@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import YouTubeChannel from "./YouTubeChannel"
+import ChannelVideos from "./channelvideos"
 
 import SEO from "../components/seo"
 
@@ -16,17 +16,14 @@ const IndexPage = props => {
         <header className="bg-accent-3 border-accent-2 border-b p-4 mb-6">
           <h1 className="inline-block">
             <Link
-              className="text-2xl font-extrabold hover:text-accent-4"
+              className="text-2xl font-extrabold hover:text-white"
               to={`/`}
             >
               Yogi Library
             </Link>
           </h1>
-          <div className="inline-block">
-            <Link to="/YouTubeChannel">Channel</Link>
-          </div>
-          <div className="inline-block">
-            <Link to="/style">Style</Link>
+          <div className="inline-block absolute right-0 p-2">
+            <Link to="/filters">Filters</Link>
           </div>
         </header>
         <main className="flex -mx-2 flex-wrap px-6 md:px-8">
@@ -34,7 +31,7 @@ const IndexPage = props => {
             return (
               <div
                 key={video.poseid}
-                className="w-1/1 md:w-1/3 lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-blue-700 shadow-lg"
+                className="w-1/1 md:w-1/3 relative lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-accent-3 shadow-lg"
               >
                 <a href={video.url} target="_blank">
                   <img
@@ -42,24 +39,34 @@ const IndexPage = props => {
                     src={video.thumbnail}
                     alt="Sunset in the mountains"
                   />
-                  <div className="px-6 py-2">
+                </a>
+                <div className="bg-green-100">
+
+                  <div className="px-6 py-2 bg-blue-200">
                     <div className="font-bold text-xl mb-1">{video.title}</div>
                   </div>
-                </a>
+                <div className="bg-red-200 absolute bottom-0">
+
                 <div className="px-6 py-1">
-                  <div className="inline-block px-3 py-1 text-xl font-semibold text-green-700 mr-2">
+                  <div className="inline-block px-3 py-1 text-xl mr-2">
                     {video.level}
                   </div>
-                  <div className="inline-block px-3 py-1 text-sm font-semibold text-red-700 mr-2">
+                  <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-2 mr-2">
                     {video.length} min
+                  </div>
+                  <div className="inline-block px-3 py-1 text-sm font-semibold text-red-700 mr-2">
+                    {video.yogastyle}
                   </div>
                 </div>
                 <div className="px-6 py-1">
                   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                    📺 {video.channel}
+                    <Link to={`/${video.channel}`}>📺 {video.channel}</Link>
+                    {/* <ChannelVideos channel={video.channel} /> */}
                   </span>
                 </div>
+                </div>
               </div>
+                </div>
             )
           })}
         </main>
@@ -92,6 +99,7 @@ export const data = graphql`
         length
         title
         url
+        yogastyle
         thumbnail
       }
     }

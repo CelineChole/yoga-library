@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-const YouTubeChannel = props => {
+const filters = props => {
   const channels = props.data.allGoogleSheetMasterRow.nodes
 
   let uniqueChannel = new Set()
@@ -25,10 +25,10 @@ const YouTubeChannel = props => {
   )
 }
 
-export default YouTubeChannel
+export default filters
 
 export const data = graphql`
-  query youtubeChannelQueery {
+  query youtubeChannelQuery {
     allGoogleSheetMasterRow {
       nodes {
         channel
