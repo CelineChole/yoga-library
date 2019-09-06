@@ -44,9 +44,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-google-sheets',
       options: {
-          spreadsheetId: '13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E',
-          worksheetTitle: 'Master',
-          credentials: require('./client_secret')
+        spreadsheetId: '13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E',
+        worksheetTitle: 'Master',
+        credentials: require('./client_secret.json')
       }
   },
     // this (optional) plugin enables Progressive Web App + Offline functionality
