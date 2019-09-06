@@ -15,10 +15,7 @@ const IndexPage = props => {
       <div className="min-h-screen flex flex-col">
         <header className="bg-accent-3 border-accent-2 border-b p-4 mb-6">
           <h1 className="inline-block">
-            <Link
-              className="text-2xl font-extrabold hover:text-white"
-              to={`/`}
-            >
+            <Link className="text-2xl font-extrabold hover:text-white" to={`/`}>
               Yogi Library
             </Link>
           </h1>
@@ -40,12 +37,9 @@ const IndexPage = props => {
                     alt="Sunset in the mountains"
                   />
                 </a>
-                <div className="bg-green-100">
-
-                  <div className="px-6 py-2 bg-blue-200">
-                    <div className="font-bold text-xl mb-1">{video.title}</div>
-                  </div>
-                <div className="bg-red-200 absolute bottom-0">
+                <div className="px-6 py-2">
+                  <div className="font-bold text-xl mb-1">{video.title}</div>
+                </div>
 
                 <div className="px-6 py-1">
                   <div className="inline-block px-3 py-1 text-xl mr-2">
@@ -64,9 +58,7 @@ const IndexPage = props => {
                     {/* <ChannelVideos channel={video.channel} /> */}
                   </span>
                 </div>
-                </div>
               </div>
-                </div>
             )
           })}
         </main>
