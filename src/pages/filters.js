@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import SEO from "../components/seo"
+import Layout from "../components/layout"
 
 const filters = props => {
   const channels = props.data.allGoogleSheetMasterRow.nodes
@@ -16,11 +17,15 @@ const filters = props => {
   return (
     <>
       <SEO title="YouTube Channel" />
-      <h1>Filter by Channel</h1>
-      {uniqueChannel.map(c => {
-        return <div key={c.channel}>{c.channel}</div>
-      })}
-      <Link to="/">Go back to the homepage</Link>
+      <Layout>
+        <main>
+          <h1>Filter by Channel</h1>
+          {uniqueChannel.map(c => {
+            return <div key={c.channel}>{c.channel}</div>
+          })}
+          <Link to="/">Go back to the homepage</Link>
+        </main>
+      </Layout>
     </>
   )
 }
