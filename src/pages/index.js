@@ -18,7 +18,7 @@ const IndexPage = props => {
             return (
               <div
                 key={video.poseid}
-                className="w-1/1 md:w-1/3 relative lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-accent-3 shadow-lg"
+                className="md:w-1/3 relative lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-accent-3 shadow-lg"
               >
                 <a href={video.url} target="_blank">
                   <img
@@ -26,10 +26,10 @@ const IndexPage = props => {
                     src={video.thumbnail}
                     alt="Sunset in the mountains"
                   />
-                </a>
                 <div className="px-6 py-2">
                   <div className="font-bold text-xl mb-1">{video.title}</div>
                 </div>
+                </a>
 
                 <div className="px-6 py-1">
                   <div className="inline-block px-3 py-1 text-xl mr-2">
