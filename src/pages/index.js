@@ -18,7 +18,7 @@ const IndexPage = props => {
             return (
               <div
                 key={video.poseid}
-                className="md:w-1/3 relative lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-accent-3 shadow-lg"
+                className="flex flex-col md:w-1/3 relative lg:w-1/4 px-2 py-2 my-4 rounded overflow-hidden hover:text-accent-3 shadow-lg"
               >
                 <a href={video.url} target="_blank">
                   <img
@@ -26,33 +26,34 @@ const IndexPage = props => {
                     src={video.thumbnail}
                     alt="Sunset in the mountains"
                   />
-                <div className="px-6 py-2">
-                  <div className="font-bold text-xl mb-1">{video.title}</div>
-                </div>
+                  <div className="px-6 py-2">
+                    <div className="font-bold text-xl mb-1">{video.title}</div>
+                  </div>
                 </a>
-
-                <div className="px-6 py-1">
-                  <div className="inline-block px-3 py-1 text-xl mr-2">
-                    {video.level}
+                <div className="flex flex-1 flex-col justify-end">
+                  <div className="flex-0 px-6 py-1">
+                    <div className="inline-block px-3 py-1 text-xl mr-2">
+                      {video.level}
+                    </div>
+                    <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-2 mr-2">
+                      {video.length} min
+                    </div>
+                    <div className="inline-block px-3 py-1 text-sm font-semibold text-red-700 mr-2">
+                      {video.yogastyle}
+                    </div>
                   </div>
-                  <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-2 mr-2">
-                    {video.length} min
+                  <div className="px-6 py-1">
+                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
+                      <Link to={`/${video.channel}`}>📺 {video.channel}</Link>
+                      {/* <ChannelVideos channel={video.channel} /> */}
+                    </span>
                   </div>
-                  <div className="inline-block px-3 py-1 text-sm font-semibold text-red-700 mr-2">
-                    {video.yogastyle}
-                  </div>
-                </div>
-                <div className="px-6 py-1">
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-                    <Link to={`/${video.channel}`}>📺 {video.channel}</Link>
-                    {/* <ChannelVideos channel={video.channel} /> */}
-                  </span>
                 </div>
               </div>
             )
           })}
         </main>
-        </Layout>
+      </Layout>
     </>
   )
 }
