@@ -6,7 +6,7 @@ const Header = props => {
   const siteTitle = data.site
   console.log(data)
   return (
-    
+    <></>
   )
 }
 

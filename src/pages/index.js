@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Layout from "../components/layout"
 import ChannelVideos from "./channelvideos"
 
 import SEO from "../components/seo"
@@ -11,18 +12,7 @@ const IndexPage = props => {
   return (
     <>
       <SEO title="Home" />
-
-      <div className="min-h-screen flex flex-col">
-        <header className="bg-accent-3 border-accent-2 border-b p-4 mb-6">
-          <h1 className="inline-block">
-            <Link className="text-2xl font-extrabold hover:text-white" to={`/`}>
-              Yogi Library
-            </Link>
-          </h1>
-          <div className="inline-block absolute right-0 p-2">
-            <Link to="/filters">Filters</Link>
-          </div>
-        </header>
+      <Layout>
         <main className="flex -mx-2 flex-wrap px-6 md:px-8">
           {videos.map(video => {
             return (
@@ -62,19 +52,7 @@ const IndexPage = props => {
             )
           })}
         </main>
-        <footer className="bg-accent-2 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
-          <div className="mb-4 font-semibold">
-            <a
-              className="hover:text-accent-4"
-              href="https://github.com/CelineChole/"
-              target="_blank"
-            >
-              {/* Build and designed by {author} • {new Date().getFullYear()} • itineranturweb.com */}
-            </a>
-          </div>
-          <div></div>
-        </footer>
-      </div>
+        </Layout>
     </>
   )
 }
