@@ -26,27 +26,26 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="bg-accent-3 border-accent-2 border-b p-4 mb-6">
-        <h1 className="inline-block">
-          <Link className="text-2xl md:text-3xl  text-gray-200 font-bold hover:font-extrabold" to={`/`}>
-            {title}
-          </Link>
-        </h1>
-        <div className="inline-block absolute right-0 p-2">
-          <Link to="/about">About</Link>
-        </div>
-        <div className="inline-block p-2">
-          <Link to="/filters">Filters</Link>
+      <header className="bg-accent-3 border-accent-2 border-b p-3 mb-6">
+        <div className="flex items-center">
+          <div className="flex-grow">
+            <h1 className="text-2xl md:text-3xl text-gray-200 font-bold">
+              <Link to={`/`} className="hover:font-extrabold">{title}</Link>
+            </h1>
+          </div>
+          <div className="text-lg hover:text-gray-200 hover:font-semibold pr-4">
+            <Link to="/about">About</Link>
+          </div>
+          <div className="text-lg hover:text-gray-200 hover:font-semibold">
+            <Link to="/filters">Filters</Link>
+          </div>
         </div>
       </header>
-      <main className="flex-1 max-w-6xl">
-          {children}
-        </main>
+      <main className="flex-1 max-w-6xl">{children}</main>
       <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t py-6 mt-4 flex flex-col items-center">
         <div className="px-12 flex felx-wrap">
           <div className="text-center">
-        Build and designed by {author} • {new Date().getFullYear()} • ?.com
-
+            Built and designed by {author} • {new Date().getFullYear()} • ?.com
           </div>
         </div>
       </footer>
