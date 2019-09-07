@@ -35,12 +35,20 @@ const Layout = ({ children }) => {
         <div className="inline-block absolute right-0 p-2">
           <Link to="/about">About</Link>
         </div>
+        <div className="inline-block p-2">
+          <Link to="/filters">Filters</Link>
+        </div>
       </header>
       <main className="flex-1 max-w-6xl">
           {children}
         </main>
-      <footer className="bg-accent-3 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
+      <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
+        <div className="px-12 flex felx-wrap">
+          <div className="text-center">
         Build and designed by {author} • {new Date().getFullYear()} • ?.com
+
+          </div>
+        </div>
       </footer>
     </div>
   )
