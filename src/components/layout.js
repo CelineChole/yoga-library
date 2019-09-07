@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
+import about from "../pages/about"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,11 +16,13 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          author
         }
       }
     }
   `)
   const title = data.site.siteMetadata.title
+  const author = data.site.siteMetadata.author
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -30,21 +33,12 @@ const Layout = ({ children }) => {
           </Link>
         </h1>
         <div className="inline-block absolute right-0 p-2">
-          <Link to="/filters">Filters</Link>
+          <Link to="/about">About</Link>
         </div>
       </header>
       {children}
-      <footer className="bg-accent-2 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
-        <div className="mb-4 font-semibold">
-          <a
-            className="hover:text-accent-4"
-            href="https://github.com/CelineChole/"
-            target="_blank"
-          >
-            {/* Build and designed by {author} • {new Date().getFullYear()} • itineranturweb.com */}
-          </a>
-        </div>
-        <div></div>
+      <footer className="bg-accent-3 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
+        Build and designed by {author} • {new Date().getFullYear()} • ?.com
       </footer>
     </div>
   )
