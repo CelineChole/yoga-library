@@ -30,7 +30,9 @@ const Layout = ({ children }) => {
         <div className="flex items-center">
           <div className="flex-grow">
             <h1 className="text-2xl md:text-3xl text-gray-200 font-bold">
-              <Link to={`/`} className="hover:font-extrabold">{title}</Link>
+              <Link to={`/`} className="hover:font-extrabold">
+                {title}
+              </Link>
             </h1>
           </div>
           <div className="text-lg hover:text-gray-200 hover:font-semibold pr-4">
@@ -41,7 +43,7 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </header>
-      <main className="flex-1 max-w-6xl">{children}</main>
+        <main className="flex-1 max-w-6xl mx-auto">{children}</main>
       <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t py-6 mt-4 flex flex-col items-center">
         <div className="px-12 flex felx-wrap">
           <div className="text-center">
