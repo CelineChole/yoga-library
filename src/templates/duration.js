@@ -58,7 +58,6 @@ const Duration = ({ pageContext, data }) => {
             )
           })}
         </div>
-        <Link to="/durations">All durations</Link>
       </main>
     </Layout>
   )

@@ -27,7 +27,7 @@ const IndexPage = props => {
                       alt={video.title}
                     />
                     <div className="px-6 py-2">
-                      <div className="font-bold text-lg mb-1">
+                      <div className="font-bold text-gray-700 text-lg mb-1">
                         {video.title}
                       </div>
                     </div>
@@ -37,19 +37,19 @@ const IndexPage = props => {
                       <div className="inline-block px-3 py-1 text-xl mr-2">
                         {video.level}
                       </div>
-                      <div className="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
+                      <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
                         <Link to={`/duration/${video.duration}`}>
                         {video.duration} min
                         </Link>
                       </div>
-                      <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-3 mr-2">
+                      <div className="inline-block px-3 py-1 rounded text-sm font-semibold hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
                         <Link to={`/tag/${video.tag}`}>
                         {video.tag}
                         </Link>
                       </div>
                     </div>
                     <div className="px-6 py-1 mb-2">
-                      <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
+                      <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
                         <Link to={`/channel/${video.channel}`}>
                           📺 {video.channel}
                         </Link>

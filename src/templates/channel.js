@@ -13,7 +13,7 @@ const Channel = ({ pageContext, data }) => {
     <Layout>
       <main className="px-6 md:px-8">
         <h1 className="mb-4 text-xl font-bold">{channelHeader}</h1>
-        <div className="flex -mx-2 flex-wrap">
+        <div className="flex -mx-3 flex-wrap">
           {nodes.map(video => {
             return (
               <div
