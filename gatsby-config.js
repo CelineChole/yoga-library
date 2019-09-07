@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Yogi library`,
+    title: `Yogi Library`,
     description: `A video library for yoga lovers`,
     author: `Céline Cholé`,
   },

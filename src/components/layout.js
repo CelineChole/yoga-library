@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
     <div className="min-h-screen flex flex-col">
       <header className="bg-accent-3 border-accent-2 border-b p-4 mb-6">
         <h1 className="inline-block">
-          <Link className="text-2xl font-extrabold hover:text-white" to={`/`}>
+          <Link className="text-2xl md:text-3xl  text-gray-200 font-bold hover:font-extrabold" to={`/`}>
             {title}
           </Link>
         </h1>
@@ -42,7 +42,7 @@ const Layout = ({ children }) => {
       <main className="flex-1 max-w-6xl">
           {children}
         </main>
-      <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
+      <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t py-6 mt-4 flex flex-col items-center">
         <div className="px-12 flex felx-wrap">
           <div className="text-center">
         Build and designed by {author} • {new Date().getFullYear()} • ?.com
