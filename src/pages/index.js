@@ -45,8 +45,7 @@ const IndexPage = props => {
                   </div>
                   <div className="px-6 py-1 mb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
-                      <Link to={`/${video.channel}`}>📺 {video.channel}</Link>
-                      {/* <ChannelVideos channel={video.channel} /> */}
+                      <Link to={`/channel/${video.channel}`}>📺 {video.channel}</Link>
                     </span>
                   </div>
                 </div>
