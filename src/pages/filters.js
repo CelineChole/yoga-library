@@ -7,47 +7,44 @@ const Filters = props => {
   const channels = props.data.channels.distinct
   const durations = props.data.duration.distinct
 
+  const Button = ({ name, type, customLabel }) => {
+    const label = customLabel || name
+
+    return (
+      <div className="m-1">
+        <div className="px-3 py-1 text-sm rounded hover:text-white hover:bg-accent-3 bg-gray-200">
+          <Link to={`/${type}/${name}`}>{label}</Link>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <Layout>
-      <main className="px-6 md:px-8 max-w-3xl mx-auto">
-        <div className="py-2 rounded bg-gray-200 px-2 md:p-4">
+      <main className="px-6 md:px-8 max-w-2xl mx-auto">
+        <div className="py-2 px-2 md:p-4">
           <h1 className="text-xl text-center font-semibold py-2">Tags</h1>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center">
             {tags.map(tag => {
-              return (
-                  <div
-                    className="p-2 hover:text-accent-3"
-                    key={tag}
-                  >
-                    <Link to={`/tag/${tag}`}>{tag}</Link>
-                  </div>
-              )
+              return <Button name={tag} type="tag" key={tag} />
             })}
           </div>
         </div>
-        <div className="py-2 md:p-4 my-3 rounded bg-gray-200 px-2">
+        <div className="py-2 md:p-4 my-3 px-2">
           <h1 className="text-xl text-center font-semibold py-2">
             YouTube Channels
           </h1>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center">
             {channels.map(channel => {
-              return (
-                <div className="p-2 hover:text-accent-3" key={channel}>
-                  <Link to={`/channel/${channel}`}>{channel}</Link>
-                </div>
-              )
+              return <Button name={channel} type="channel" key={channel} />
             })}
           </div>
         </div>
-        <div className="py-2 md:p-4 rounded my-3 bg-gray-200 px-2">
+        <div className="py-2 md:p-4 my-3 px-2">
           <h1 className="text-xl text-center font-semibold py-2">Duration</h1>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap justify-center">
             {durations.map(duration => {
-              return (
-                <div className="p-2 hover:text-accent-3" key={duration}>
-                  <Link to={`/duration/${duration}`}>{duration} min</Link>
-                </div>
-              )
+              return <Button name={duration} type="duration" customLabel={`${duration} min`} key={duration} />
             })}
           </div>
         </div>
@@ -66,7 +63,7 @@ export const data = graphql`
     tags: allGoogleSheetMasterRow {
       distinct(field: tag)
     }
-    duration: allGoogleSheetMasterRow {
+    duration: allGoogleSheetMasterRow(sort: { fields: duration }) {
       distinct(field: duration)
     }
   }
