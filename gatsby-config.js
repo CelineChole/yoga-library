@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Yoga library`,
+    title: `Yogi library`,
     description: `A video library for yoga lovers`,
-    author: `Céline`,
+    author: `Céline Cholé`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
