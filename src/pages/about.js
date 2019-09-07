@@ -11,7 +11,7 @@ const About = props => {
           </div>
           <div className="md:w-1/2 pt-6 md:pt-0 px-6">
             <div className="text-2xl mb-12">Yogi Library is my collection of YouTube videos to practice yoga.</div>
-            <div className="text-lg">Videos can be filtered by YouTube channel and by duration.</div>
+            <div className="text-lg">Videos can be viewed by YouTube channel, duration and tags.</div>
           </div>
         </div>
       </main>
