@@ -17,7 +17,7 @@ const IndexPage = props => {
             return (
               <div
                 key={video.poseid}
-                className="md:w-1/3 relative lg:w-1/4 px-3 my-4"
+                className="md:w-1/3 relative lg:w-1/3 xl:w-1/4 px-3 my-4"
               >
               <div className="flex flex-col h-full rounded overflow-hidden hover:text-accent-3 shadow-lg hover:bg-gray-100">
                 <a href={video.url} target="_blank">
@@ -27,7 +27,7 @@ const IndexPage = props => {
                     alt={video.title}
                   />
                   <div className="px-6 py-2">
-                    <div className="font-bold text-xl mb-1">{video.title}</div>
+                    <div className="font-bold text-lg mb-1">{video.title}</div>
                   </div>
                 </a>
                 <div className="flex flex-1 flex-col justify-end">
