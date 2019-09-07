@@ -8,13 +8,13 @@ const Duration = ({ pageContext, data }) => {
   const { nodes, totalCount } = data.allGoogleSheetMasterRow
   const durationHeader = `${totalCount} video${
     totalCount === 1 ? "" : "s"
-  } for duration "${duration}"`
+  } of ${duration} minutes`
 
   return (
     <Layout>
-      <main>
+      <main className="px-6 md:px-8">
         <div>
-          <h1>{durationHeader}</h1>
+          <h1 className="mb-4 text-xl font-bold">{durationHeader}</h1>
           <ul>
             {nodes.map(video => {
               return (
@@ -24,10 +24,6 @@ const Duration = ({ pageContext, data }) => {
               )
             })}
           </ul>
-          {/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
           <Link to="/durations">All durations</Link>
         </div>
       </main>
