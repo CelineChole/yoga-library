@@ -8,26 +8,22 @@ const Channel = ({ pageContext, data }) => {
   const { nodes, totalCount } = data.allGoogleSheetMasterRow
   const channelHeader = `${totalCount} video${
     totalCount === 1 ? "" : "s"
-  } for channel "${channel}"`
+  } for YouTube channel "${channel}"`
 
   return (
     <Layout>
-      <main>
+      <main className="px-6 md:px-8">
         <div>
-          <h1>{channelHeader}</h1>
+          <h1 className="mb-4 text-xl font-bold">{channelHeader}</h1>
           <ul>
             {nodes.map(video => {
               return (
                 <li key={video.title}>
-                  <Link to={video.title}>{video.title}</Link>
+                  <a href={video.url} target="_blank">{video.title}</a>
                 </li>
               )
             })}
           </ul>
-          {/*
-              This links to a page that does not yet exist.
-              We'll come back to it!
-            */}
           <Link to="/channels">All Channels</Link>
         </div>
       </main>
@@ -42,6 +38,7 @@ export const pageQuery = graphql`
     allGoogleSheetMasterRow(filter: {channel: {eq: $channel}}) {
       nodes {
         title
+        url
       }
       totalCount
     }
