@@ -36,7 +36,7 @@ const IndexPage = props => {
                       {video.level}
                     </div>
                     <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-2 mr-2">
-                      {video.length} min
+                      {video.duration} min
                     </div>
                     <div className="inline-block px-3 py-1 text-sm font-semibold text-red-700 mr-2">
                       {video.yogastyle}
@@ -67,7 +67,7 @@ export const data = graphql`
         poseid
         level
         channel
-        length
+        duration
         title
         url
         yogastyle
