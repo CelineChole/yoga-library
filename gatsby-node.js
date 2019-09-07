@@ -42,7 +42,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   
   // Make tag pages
   durations.forEach(duration => {
-    console.log(duration)
     createPage({
       path: `/duration/${duration}/`,
       component: durationTemplate,
