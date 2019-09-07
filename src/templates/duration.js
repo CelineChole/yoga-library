@@ -13,7 +13,7 @@ const Duration = ({ pageContext, data }) => {
   return (
     <Layout>
       <main className="px-6 md:px-8">
-          <h1 className="mb-4 text-xl font-bold">{durationHeader}</h1>
+        <h1 className="mb-4 text-xl font-bold">{durationHeader}</h1>
         <div className="flex -mx-2 flex-wrap">
           {nodes.map(video => {
             return (
@@ -40,7 +40,9 @@ const Duration = ({ pageContext, data }) => {
                         {video.level}
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
-                        {video.tag}
+                        <Link to={`/tag/${video.tag}`}>
+                          {video.tag}
+                        </Link>
                       </div>
                     </div>
                     <div className="px-4 py-1 mb-2">
@@ -56,7 +58,7 @@ const Duration = ({ pageContext, data }) => {
             )
           })}
         </div>
-          <Link to="/durations">All durations</Link>
+        <Link to="/durations">All durations</Link>
       </main>
     </Layout>
   )
@@ -66,7 +68,7 @@ export default Duration
 
 export const pageQuery = graphql`
   query($duration: Int) {
-    allGoogleSheetMasterRow(filter: {duration: {eq: $duration}}) {
+    allGoogleSheetMasterRow(filter: { duration: { eq: $duration } }) {
       nodes {
         title
         url
@@ -74,6 +76,7 @@ export const pageQuery = graphql`
         channel
         level
         tag
+        poseid
       }
       totalCount
     }

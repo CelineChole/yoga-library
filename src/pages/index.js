@@ -43,7 +43,9 @@ const IndexPage = props => {
                         </Link>
                       </div>
                       <div className="inline-block px-3 py-1 text-sm font-semibold text-accent-3 mr-2">
+                        <Link to={`/tag/${video.tag}`}>
                         {video.tag}
+                        </Link>
                       </div>
                     </div>
                     <div className="px-6 py-1 mb-2">
