@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import ChannelVideos from "./channelvideos"
 
 import SEO from "../components/seo"
 
