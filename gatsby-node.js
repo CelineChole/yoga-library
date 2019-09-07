@@ -5,6 +5,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const channelTemplate = path.resolve("src/templates/channel.js")
   const durationTemplate = path.resolve("src/templates/duration.js")
+  const tagTemplate = path.resolve("src/templates/tag.js")
 
   const result = await graphql(`
     {
@@ -13,6 +14,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
       durationGroup: allGoogleSheetMasterRow {
         distinct(field: duration)
+      }
+      tagGroup: allGoogleSheetMasterRow {
+        distinct(field: tag)
       }
     }
   `)
@@ -40,13 +44,26 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Extract duration data from query
   const durations = result.data.durationGroup.distinct
   
-  // Make tag pages
+  // Make duration pages
   durations.forEach(duration => {
     createPage({
       path: `/duration/${duration}/`,
       component: durationTemplate,
       context: {
         duration: parseInt(duration),
+      },
+    })
+  })
+  // Extract tag data from query
+  const tags = result.data.tagGroup.distinct
+  
+  // Make tag pages
+  tags.forEach(tag => {
+    createPage({
+      path: `/tag/${tag}/`,
+      component: tagTemplate,
+      context: {
+        tag: tag,
       },
     })
   })

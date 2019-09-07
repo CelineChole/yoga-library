@@ -2,39 +2,39 @@ import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
 
-const Channel = ({ pageContext, data }) => {
-  const { channel } = pageContext
+const Tag = ({ pageContext, data }) => {
+  const { tag } = pageContext
   const { nodes, totalCount } = data.allGoogleSheetMasterRow
-  const channelHeader = `${totalCount} video${
+  const tagHeader = `${totalCount} video${
     totalCount === 1 ? "" : "s"
-  } for YouTube channel "${channel}"`
+  } of ${tag}`
 
   return (
     <Layout>
       <main className="px-6 md:px-8">
         <div>
-          <h1 className="mb-4 text-xl font-bold">{channelHeader}</h1>
+          <h1 className="mb-4 text-xl font-bold">{tagHeader}</h1>
           <ul>
             {nodes.map(video => {
               return (
                 <li key={video.title}>
-                  <a href={video.url} target="_blank">{video.title}</a>
+                  <Link to={video.url}>{video.title}</Link>
                 </li>
               )
             })}
           </ul>
-          <Link to="/channels">All Channels</Link>
+          <Link to="/tag">All tags</Link>
         </div>
       </main>
     </Layout>
   )
 }
 
-export default Channel
+export default Tag
 
 export const pageQuery = graphql`
-  query($channel: String) {
-    allGoogleSheetMasterRow(filter: {channel: {eq: $channel}}) {
+  query($tag: String) {
+    allGoogleSheetMasterRow(filter: {tag: {eq: $tag}}) {
       nodes {
         title
         url

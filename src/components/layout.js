@@ -36,7 +36,9 @@ const Layout = ({ children }) => {
           <Link to="/about">About</Link>
         </div>
       </header>
-      {children}
+      <main className="flex-1 max-w-6xl">
+          {children}
+        </main>
       <footer className="bg-accent-3 border-accent-2 border-t pb-10 pt-6 mt-6 flex flex-col items-center">
         Build and designed by {author} • {new Date().getFullYear()} • ?.com
       </footer>
