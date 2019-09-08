@@ -40,7 +40,13 @@ const IndexPage = props => {
     <>
       <SEO title="Home" />
       <Layout>
-        <main className="flex -mx-2 flex-wrap px-6 md:px-8">
+        <div className="flex flex-col">
+          <section className="flex bg-purple-500">
+            Filters
+            <hr/>
+            <input type="checkbox" name="sortDescending" value={sortDescending} onClick={() => setSortDescending((s) => !s)} />
+          </section>
+        <div className="flex -mx-2 flex-wrap px-6 md:px-8">
           {sortedList.map(video => {
             return (
               <div
@@ -84,9 +90,10 @@ const IndexPage = props => {
                   </div>
                 </div>
               </div>
+              
             )
           })}
-        </main>
+        </div></div>
       </Layout>
     </>
   )
