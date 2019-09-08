@@ -22,6 +22,9 @@ const About = props => {
             <div className="md:text-lg">
               Videos can be viewed by YouTube channel, duration and tags. Click on <Link className="text-accent-3 italic hover:font-semibold" to="/filters">filters</Link> to see all the available options.
             </div>
+            <div className="md:pt-10 pt-4">
+              Built with <a className="italic" href="https://www.gatsbyjs.org/" target="_blank">GatsbyJS</a>.
+            </div>
         </div>
       </div>
     </Layout>
