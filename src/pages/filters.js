@@ -6,6 +6,7 @@ const Filters = props => {
   const tags = props.data.tags.distinct
   const channels = props.data.channels.distinct
   const durations = props.data.duration.distinct
+  const styles = props.data.yogastyle.distinct
 
   const Button = ({ name, type, customLabel }) => {
     const label = customLabel || name
@@ -21,31 +22,50 @@ const Filters = props => {
 
   return (
     <Layout>
-      <main className="px-6 md:px-8 max-w-2xl mx-auto">
-        <div className="py-2 px-2 md:p-4">
-          <h1 className="text-xl text-center font-semibold py-2">Tags</h1>
-          <div className="flex flex-wrap justify-center">
-            {tags.map(tag => {
-              return <Button name={tag} type="tag" key={tag} />
-            })}
+      <main className="px-6 md:px-8 max-w-4xl mx-auto lg:flex">
+        <div className="lg:w-1/2">
+          <div className="py-2 md:px-2 md:p-4">
+            <h1 className="text-xl text-center font-semibold py-2">Tags</h1>
+            <div className="flex flex-wrap justify-center">
+              {tags.map(tag => {
+                return <Button name={tag} type="tag" key={tag} />
+              })}
+            </div>
+          </div>
+          <div className="py-2 md:p-4 md:px-2">
+            <h1 className="text-xl text-center font-semibold py-2">
+              YouTube Channels
+            </h1>
+            <div className="flex flex-wrap justify-center">
+              {channels.map(channel => {
+                return <Button name={channel} type="channel" key={channel} />
+              })}
+            </div>
           </div>
         </div>
-        <div className="py-2 md:p-4 my-3 px-2">
-          <h1 className="text-xl text-center font-semibold py-2">
-            YouTube Channels
-          </h1>
-          <div className="flex flex-wrap justify-center">
-            {channels.map(channel => {
-              return <Button name={channel} type="channel" key={channel} />
-            })}
+        <div className="lg:w-1/2">
+          <div className="py-2 md:p-4 md:px-2">
+            <h1 className="text-xl text-center font-semibold py-2">Duration</h1>
+            <div className="flex flex-wrap justify-center">
+              {durations.map(duration => {
+                return (
+                  <Button
+                    name={duration}
+                    type="duration"
+                    customLabel={`${duration} min`}
+                    key={duration}
+                  />
+                )
+              })}
+            </div>
           </div>
-        </div>
-        <div className="py-2 md:p-4 my-3 px-2">
-          <h1 className="text-xl text-center font-semibold py-2">Duration</h1>
-          <div className="flex flex-wrap justify-center">
-            {durations.map(duration => {
-              return <Button name={duration} type="duration" customLabel={`${duration} min`} key={duration} />
-            })}
+          <div className="py-2 md:p-4 md:px-2">
+            <h1 className="text-xl text-center font-semibold py-2">Styles</h1>
+            <div className="flex flex-wrap justify-center">
+              {styles.map(style => {
+                return <Button name={style} type="styles" key={style} />
+              })}
+            </div>
           </div>
         </div>
       </main>
@@ -57,7 +77,7 @@ export default Filters
 
 export const data = graphql`
   query allFiltersQuery {
-    channels: allGoogleSheetMasterRow {
+    channels: allGoogleSheetMasterRow(sort: { fields: channel }) {
       distinct(field: channel)
     }
     tags: allGoogleSheetMasterRow {
@@ -65,6 +85,12 @@ export const data = graphql`
     }
     duration: allGoogleSheetMasterRow(sort: { fields: duration }) {
       distinct(field: duration)
+    }
+    yogastyle: allGoogleSheetMasterRow(sort: { fields: yogastyle }) {
+      distinct(field: yogastyle)
+    }
+    language: allGoogleSheetMasterRow(sort: { fields: language }) {
+      distinct(field: language)
     }
   }
 `

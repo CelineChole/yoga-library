@@ -35,10 +35,10 @@ const Layout = ({ children }) => {
               </Link>
             </h1>
           </div>
-          <div className="text-lg hover:text-gray-200 hover:font-semibold pr-4">
+          <div className="text-lg text-gray-200 hover:font-semibold pr-4">
             <Link to="/about">About</Link>
           </div>
-          <div className="text-lg hover:text-gray-200 hover:font-semibold">
+          <div className="text-lg text-gray-200 hover:font-semibold">
             <Link to="/filters">Filters</Link>
           </div>
         </div>
@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
       <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t py-6 mt-4 flex flex-col items-center">
         <div className="px-12 flex felx-wrap">
           <div className="text-center">
-            Built and designed by {author} • {new Date().getFullYear()} • ?.com
+            Built and designed by <a href="https://celinechole.com/" className="italic hover:font-semibold" target="_blank">{author}</a> • {new Date().getFullYear()} • <Link to="/" className="italic hover:font-semibold">yogi-library.surge.sh</Link>
           </div>
         </div>
       </footer>
