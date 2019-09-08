@@ -39,16 +39,14 @@ const Channel = ({ pageContext, data }) => {
                         {video.level}
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
-                        <Link to={`/tag/${video.tag}`}>
-                          {video.tag}
-                        </Link>
+                        <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
                       </div>
                     </div>
                     <div className="px-4 py-1 mb-2">
                       <span className="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-medium text-gray-700 hover:bg-accent-3 hover:text-white">
-                          <Link to={`/duration/${video.duration}`}>
+                        <Link to={`/duration/${video.duration}`}>
                           {video.duration} min
-                          </Link>
+                        </Link>
                       </span>
                     </div>
                   </div>

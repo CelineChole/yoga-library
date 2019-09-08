@@ -40,9 +40,7 @@ const Duration = ({ pageContext, data }) => {
                         {video.level}
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
-                        <Link to={`/tag/${video.tag}`}>
-                          {video.tag}
-                        </Link>
+                        <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
                       </div>
                     </div>
                     <div className="px-4 py-1 mb-2">

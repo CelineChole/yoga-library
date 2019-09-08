@@ -42,13 +42,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-google-sheets',
+      resolve: "gatsby-source-google-sheets",
       options: {
-        spreadsheetId: '13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E',
-        worksheetTitle: 'Master',
-        credentials: require('./client_secret.json')
-      }
-  },
+        spreadsheetId: "13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E",
+        worksheetTitle: "Master",
+        credentials: require("./client_secret.json"),
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

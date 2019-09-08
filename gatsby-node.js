@@ -43,7 +43,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   // Extract duration data from query
   const durations = result.data.durationGroup.distinct
-  
+
   // Make duration pages
   durations.forEach(duration => {
     createPage({
@@ -56,7 +56,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
   // Extract tag data from query
   const tags = result.data.tagGroup.distinct
-  
+
   // Make tag pages
   tags.forEach(tag => {
     createPage({
@@ -68,4 +68,3 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 }
-

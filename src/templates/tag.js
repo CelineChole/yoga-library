@@ -12,7 +12,7 @@ const Tag = ({ pageContext, data }) => {
   return (
     <Layout>
       <main className="px-6 md:px-8">
-      <h1 className="mb-4 text-xl font-bold">{tagHeader}</h1>
+        <h1 className="mb-4 text-xl font-bold">{tagHeader}</h1>
         <div className="flex -mx-2 flex-wrap">
           {nodes.map(video => {
             return (
@@ -46,9 +46,9 @@ const Tag = ({ pageContext, data }) => {
                     </div>
                     <div className="px-4 py-1 mb-2">
                       <span className="inline-block bg-gray-200 rounded-full px-2 py-1 text-sm font-medium text-gray-700 hover:bg-accent-3 hover:text-white">
-                          <Link to={`/channel/${video.channel}`}>
+                        <Link to={`/channel/${video.channel}`}>
                           {video.channel}
-                          </Link>
+                        </Link>
                       </span>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ export default Tag
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allGoogleSheetMasterRow(filter: {tag: {eq: $tag}}) {
+    allGoogleSheetMasterRow(filter: { tag: { eq: $tag } }) {
       nodes {
         title
         url

@@ -39,13 +39,11 @@ const IndexPage = props => {
                       </div>
                       <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
                         <Link to={`/duration/${video.duration}`}>
-                        {video.duration} min
+                          {video.duration} min
                         </Link>
                       </div>
                       <div className="inline-block px-3 py-1 rounded text-sm font-semibold hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
-                        <Link to={`/tag/${video.tag}`}>
-                        {video.tag}
-                        </Link>
+                        <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
                       </div>
                     </div>
                     <div className="px-6 py-1 mb-2">
@@ -70,7 +68,7 @@ export default IndexPage
 
 export const data = graphql`
   query videos {
-    allGoogleSheetMasterRow(sort: {fields: level}) {
+    allGoogleSheetMasterRow(sort: { fields: level }) {
       nodes {
         poseid
         level
