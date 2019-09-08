@@ -8,7 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import about from "../pages/about"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -43,11 +42,22 @@ const Layout = ({ children }) => {
           </div>
         </div>
       </header>
-        <main className="flex-1 max-w-6xl mx-auto">{children}</main>
+      <main className="flex-1 flex max-w-6xl mx-auto">{children}</main>
       <footer className="bg-accent-3 text-gray-200 border-accent-2 border-t py-6 mt-4 flex flex-col items-center">
         <div className="px-12 flex felx-wrap">
           <div className="text-center">
-            Built and designed by <a href="https://celinechole.com/" className="italic hover:font-semibold" target="_blank">{author}</a> • {new Date().getFullYear()} • <Link to="/" className="italic hover:font-semibold">yogi-library.surge.sh</Link>
+            Built and designed by{" "}
+            <a
+              href="https://celinechole.com/"
+              className="italic hover:font-semibold"
+              target="_blank"
+            >
+              {author}
+            </a>{" "}
+            • {new Date().getFullYear()} •{" "}
+            <Link to="/" className="italic hover:font-semibold">
+              yogi-library.surge.sh
+            </Link>
           </div>
         </div>
       </footer>
