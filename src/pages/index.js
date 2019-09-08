@@ -9,7 +9,7 @@ import { graphql } from "gatsby"
 const IndexPage = props => {
   const videos = props.data.allGoogleSheetMasterRow.nodes
 
-  const [sort, setSort] = useState("duration")
+  const [sort, setSort] = useState("level")
   const [sortDescending, setSortDescending] = useState(true)
 
   const sortList = (sortBy, descending) => {
@@ -19,6 +19,9 @@ const IndexPage = props => {
       case "duration":
         sortedList.sort((a, b) => parseInt(b.duration) - a.duration)
         break
+
+      case "level":
+          sortedList.sort((a, b) => b.level.length - a.level.length)
 
       default:
         break
@@ -93,7 +96,7 @@ export default IndexPage
 
 export const data = graphql`
   query videos {
-    allGoogleSheetMasterRow(sort: { fields: level }) {
+    allGoogleSheetMasterRow {
       nodes {
         poseid
         level
