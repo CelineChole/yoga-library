@@ -7,15 +7,18 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 
 const StateUpdateText = ({ state, setState, value, display }) => {
-  const displayText = display || value.slice(0,1).toUpperCase() + value.slice(1)
+  const displayText =
+    display || value.slice(0, 1).toUpperCase() + value.slice(1)
 
   return (
-    <span
+    <div
       onClick={() => setState(value)}
-      className={state === value ? "underline" : ""}
+      className="cursor-pointer inline-block px-3 py-2 my-1 text-sm font-medium rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2"
     >
-      {displayText}
-    </span>
+      <span className={state === value ? "uppercase font-bold" : ""}>
+        {displayText}
+      </span>
+    </div>
   )
 }
 
@@ -69,34 +72,47 @@ const IndexPage = props => {
       <SEO title="Home" />
       <Layout>
         <div className="flex flex-col">
-          <section className="flex">
-            Sort by
-            <StateUpdateText value="level" state={sort} setState={setSort} />
-            <StateUpdateText value="duration" state={sort} setState={setSort} />
-            <StateUpdateText value="channel" state={sort} setState={setSort} />
-            <StateUpdateText value="style" state={sort} setState={setSort} />
-            <StateUpdateText value="tag" state={sort} setState={setSort} />
-            <div class="ml-8 mb-2">
-              <div class="form-switch inline-block align-middle">
-                <input
-                  type="checkbox"
-                  class="form-switch-checkbox"
-                  value={sortDescending}
-                  id="toggleSortDescending"
-                  name="toggleSortDescending"
-                  onClick={() => setSortDescending(s => !s)}
-                />
+          <section className="flex flex-col px-8 md:mb-5">
+            <div className="uppercase text-xs text-gray-600">Sort by:</div>
+            <div className="flex items-center flex-wrap">
+              <StateUpdateText value="level" state={sort} setState={setSort} />
+              <StateUpdateText
+                value="duration"
+                state={sort}
+                setState={setSort}
+              />
+              <StateUpdateText
+                value="channel"
+                state={sort}
+                setState={setSort}
+              />
+              {/* <StateUpdateText value="style" state={sort} setState={setSort} />
+              <StateUpdateText value="tag" state={sort} setState={setSort} /> */}
+              <div className="ml-3">
+                <div className="form-switch inline-block align-middle">
+                  <input
+                    type="checkbox"
+                    className="form-switch-checkbox"
+                    value={sortDescending}
+                    id="toggleSortDescending"
+                    name="toggleSortDescending"
+                    onClick={() => setSortDescending(s => !s)}
+                  />
+                  <label
+                    className="form-switch-label"
+                    htmlFor="toggleSortDescending"
+                  ></label>
+                </div>
                 <label
-                  class="form-switch-label"
-                  for="toggleSortDescending"
-                ></label>
+                  className="text-xs text-grey-dark"
+                  htmlFor="toggleSortDescending"
+                >
+                  {sortDescending ? "Descending" : "Ascending"}
+                </label>
               </div>
-              <label class="text-xs text-grey-dark" for="toggleSortDescending">
-                {sortDescending ? "Descending" : "Ascending"}
-              </label>
             </div>
           </section>
-          <div className="flex -mx-2 flex-wrap px-6 md:px-8">
+          <div className="flex flex-wrap px-6 md:px-8">
             {sortedList.map(video => {
               return (
                 <div

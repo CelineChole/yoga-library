@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
- /* Global Styles */
+/* Global Styles */
 body {
   @apply text-gray-800;
 }
 
- /* purgecss start ignore */
+/* purgecss start ignore */
 /* Markdown Styles */
 /* Global */
 .markdown {
@@ -68,23 +68,22 @@ body {
   @apply hidden;
 }
 .form-switch-label {
-  @apply block overflow-hidden cursor-pointer bg-white border rounded-full h-6  shadow-inner;
+  @apply block overflow-hidden cursor-pointer bg-gray-300 border rounded-full h-6 shadow-inner;
 
   transition: background-color 0.2s ease-in;
 }
 .form-switch-label:before {
   @apply absolute block bg-white inset-y-0 w-6 border rounded-full -ml-1;
-  
+
   right: 50%;
   content: "";
   transition: all 0.2s ease-in;
 }
 .form-switch-checkbox:checked + .form-switch-label,
 .form-switch-checkbox:checked + .form-switch-label:before {
-
 }
 .form-switch-checkbox:checked + .form-switch-label {
-  @apply bg-green-500 shadow-none;
+  @apply bg-accent-3 shadow-none;
 }
 .form-switch-checkbox:checked + .form-switch-label:before {
   @apply inset-y-0 right-0;
