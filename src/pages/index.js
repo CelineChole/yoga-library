@@ -6,6 +6,19 @@ import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
 
+const StateUpdateText = ({ state, setState, value, display }) => {
+  const displayText = display || value.slice(0,1).toUpperCase() + value.slice(1)
+
+  return (
+    <span
+      onClick={() => setState(value)}
+      className={state === value ? "underline" : ""}
+    >
+      {displayText}
+    </span>
+  )
+}
+
 const IndexPage = props => {
   const videos = props.data.allGoogleSheetMasterRow.nodes
 
@@ -29,12 +42,14 @@ const IndexPage = props => {
         break
 
       case "style":
-        sortedList.sort((a,b) => ('' + b.yogastyle).localeCompare(('' + a.yogastyle)))
-        break;
+        sortedList.sort((a, b) =>
+          ("" + b.yogastyle).localeCompare("" + a.yogastyle)
+        )
+        break
 
       case "tag":
-          sortedList.sort((a,b) => ('' + b.tag).localeCompare(('' + a.tag)))
-          break;
+        sortedList.sort((a, b) => ("" + b.tag).localeCompare("" + a.tag))
+        break
 
       default:
         break
@@ -56,38 +71,11 @@ const IndexPage = props => {
         <div className="flex flex-col">
           <section className="flex">
             Sort by
-            <span
-              onClick={() => setSort("level")}
-              className={sort === "level" ? "underline" : ""}
-            >
-              Level
-            </span>
-            ,
-            <span
-              onClick={() => setSort("duration")}
-              className={sort === "duration" ? "underline" : ""}
-            >
-              Duration
-            </span>
-            ,
-            <span
-              onClick={() => setSort("channel")}
-              className={sort === "channel" ? "underline" : ""}
-            >
-              Channel
-            </span>
-            <span
-              onClick={() => setSort("style")}
-              className={sort === "style" ? "underline" : ""}
-            >
-              Style
-            </span>
-            <span
-              onClick={() => setSort("tag")}
-              className={sort === "tag" ? "underline" : ""}
-            >
-              Tag
-            </span>
+            <StateUpdateText value="level" state={sort} setState={setSort} />
+            <StateUpdateText value="duration" state={sort} setState={setSort} />
+            <StateUpdateText value="channel" state={sort} setState={setSort} />
+            <StateUpdateText value="style" state={sort} setState={setSort} />
+            <StateUpdateText value="tag" state={sort} setState={setSort} />
             <div class="ml-8 mb-2">
               <div class="form-switch inline-block align-middle">
                 <input
@@ -95,6 +83,7 @@ const IndexPage = props => {
                   class="form-switch-checkbox"
                   value={sortDescending}
                   id="toggleSortDescending"
+                  name="toggleSortDescending"
                   onClick={() => setSortDescending(s => !s)}
                 />
                 <label
@@ -103,7 +92,7 @@ const IndexPage = props => {
                 ></label>
               </div>
               <label class="text-xs text-grey-dark" for="toggleSortDescending">
-                Sort Ascending
+                {sortDescending ? "Descending" : "Ascending"}
               </label>
             </div>
           </section>
