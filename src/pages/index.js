@@ -22,6 +22,19 @@ const IndexPage = props => {
 
       case "level":
         sortedList.sort((a, b) => b.level.length - a.level.length)
+        break
+
+      case "channel":
+        sortedList.sort((a, b) => b.channel.localeCompare(a.channel))
+        break
+
+      case "style":
+        sortedList.sort((a,b) => ('' + b.yogastyle).localeCompare(('' + a.yogastyle)))
+        break;
+
+      case "tag":
+          sortedList.sort((a,b) => ('' + b.tag).localeCompare(('' + a.tag)))
+          break;
 
       default:
         break
@@ -42,6 +55,39 @@ const IndexPage = props => {
       <Layout>
         <div className="flex flex-col">
           <section className="flex">
+            Sort by
+            <span
+              onClick={() => setSort("level")}
+              className={sort === "level" ? "underline" : ""}
+            >
+              Level
+            </span>
+            ,
+            <span
+              onClick={() => setSort("duration")}
+              className={sort === "duration" ? "underline" : ""}
+            >
+              Duration
+            </span>
+            ,
+            <span
+              onClick={() => setSort("channel")}
+              className={sort === "channel" ? "underline" : ""}
+            >
+              Channel
+            </span>
+            <span
+              onClick={() => setSort("style")}
+              className={sort === "style" ? "underline" : ""}
+            >
+              Style
+            </span>
+            <span
+              onClick={() => setSort("tag")}
+              className={sort === "tag" ? "underline" : ""}
+            >
+              Tag
+            </span>
             <div class="ml-8 mb-2">
               <div class="form-switch inline-block align-middle">
                 <input
@@ -51,7 +97,10 @@ const IndexPage = props => {
                   id="toggleSortDescending"
                   onClick={() => setSortDescending(s => !s)}
                 />
-                <label class="form-switch-label" for="toggleSortDescending"></label>
+                <label
+                  class="form-switch-label"
+                  for="toggleSortDescending"
+                ></label>
               </div>
               <label class="text-xs text-grey-dark" for="toggleSortDescending">
                 Sort Ascending
