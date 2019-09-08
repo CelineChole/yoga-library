@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 
@@ -8,12 +8,37 @@ import { graphql } from "gatsby"
 
 const IndexPage = props => {
   const videos = props.data.allGoogleSheetMasterRow.nodes
+
+  const [sort, setSort] = useState("duration")
+  const [sortDescending, setSortDescending] = useState(true)
+
+  const sortList = (sortBy, descending) => {
+    let sortedList = videos.slice()
+
+    switch (sortBy) {
+      case "duration":
+        sortedList.sort((a, b) => parseInt(b.duration) - a.duration)
+        break
+
+      default:
+        break
+    }
+
+    if (descending) {
+      sortedList.reverse()
+    }
+
+    return sortedList
+  }
+
+  const sortedList = sortList(sort, sortDescending)
+
   return (
     <>
       <SEO title="Home" />
       <Layout>
         <main className="flex -mx-2 flex-wrap px-6 md:px-8">
-          {videos.map(video => {
+          {sortedList.map(video => {
             return (
               <div
                 key={video.poseid}
