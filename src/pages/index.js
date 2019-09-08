@@ -41,15 +41,22 @@ const IndexPage = props => {
       <SEO title="Home" />
       <Layout>
         <div className="flex flex-col">
-          <section className="flex bg-purple-500">
-            Filters
-            <hr />
-            <input
-              type="checkbox"
-              name="sortDescending"
-              value={sortDescending}
-              onClick={() => setSortDescending(s => !s)}
-            />
+          <section className="flex">
+            <div class="ml-8 mb-2">
+              <div class="form-switch inline-block align-middle">
+                <input
+                  type="checkbox"
+                  class="form-switch-checkbox"
+                  value={sortDescending}
+                  id="toggleSortDescending"
+                  onClick={() => setSortDescending(s => !s)}
+                />
+                <label class="form-switch-label" for="toggleSortDescending"></label>
+              </div>
+              <label class="text-xs text-grey-dark" for="toggleSortDescending">
+                Sort Ascending
+              </label>
+            </div>
           </section>
           <div className="flex -mx-2 flex-wrap px-6 md:px-8">
             {sortedList.map(video => {
