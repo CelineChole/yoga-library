@@ -6,6 +6,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const channelTemplate = path.resolve("src/templates/channel.js")
   const durationTemplate = path.resolve("src/templates/duration.js")
   const tagTemplate = path.resolve("src/templates/tag.js")
+  const levelTemplate = path.resolve("src/templates/level.js")
 
   const result = await graphql(`
     {
@@ -17,6 +18,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
       tagGroup: allGoogleSheetMasterRow {
         distinct(field: tag)
+      }
+      levelGroup: allGoogleSheetMasterRow {
+        distinct(field: level)
       }
     }
   `)
@@ -54,6 +58,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     })
   })
+
   // Extract tag data from query
   const tags = result.data.tagGroup.distinct
 
@@ -64,6 +69,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: tagTemplate,
       context: {
         tag: tag,
+      },
+    })
+  })
+
+  // Extract level data from query
+  const levels = result.data.levelGroup.distinct
+
+  // Make level pages
+  levels.forEach(level => {
+    createPage({
+      path: `/level/${level}/`,
+      component: levelTemplate,
+      context: {
+        level: parseInt(level),
       },
     })
   })
