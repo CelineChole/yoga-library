@@ -72,7 +72,7 @@ const IndexPage = props => {
       <SEO title="Home" />
       <Layout>
         <div className="flex flex-col">
-          <section className="flex flex-col bg-red-200 px-8 md:mb-5">
+          <section className="flex flex-col px-8 md:mb-5">
             <div className="uppercase text-xs text-gray-600">Sort by:</div>
             <div className="flex items-center flex-wrap">
               <StateUpdateText value="level" state={sort} setState={setSort} />
@@ -88,7 +88,7 @@ const IndexPage = props => {
               />
               {/* <StateUpdateText value="style" state={sort} setState={setSort} />
               <StateUpdateText value="tag" state={sort} setState={setSort} /> */}
-              <div className="ml-3 bg-green-200">
+              <div className="ml-3">
                 <div className="form-switch inline-block align-middle">
                   <input
                     type="checkbox"
