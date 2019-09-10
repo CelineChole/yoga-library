@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
-import displayLevel from "../utilities/displayLevel"
+import DisplayLevel from "../components/displayLevel"
 import sortList from "../utilities/sortList"
 
 import SEO from "../components/seo"
@@ -101,7 +101,7 @@ const IndexPage = props => {
                       <div className="flex-0 px-6 py-1">
                         <div className="inline-block px-3 py-1 text-xl mr-2">
                           <Link to={`/level/${video.level}`}>
-                            {displayLevel(video.level)}
+                            <DisplayLevel level={video.level} />
                           </Link>
                         </div>
                         <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">

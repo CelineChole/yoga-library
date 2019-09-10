@@ -1,14 +1,18 @@
 import React from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
-import displayLevel from "../utilities/displayLevel"
+import DisplayLevel from "../components/displayLevel"
 
 const Level = ({ pageContext, data }) => {
   const { level } = pageContext
   const { nodes, totalCount } = data.allGoogleSheetMasterRow
-  const levelHeader = `${totalCount} video${
+  const levelHeader = (
+    <div>{`${totalCount} video${
     totalCount === 1 ? "" : "s"
-  } of ${displayLevel({level})}`
+  } of `}
+      <DisplayLevel level={level} />
+    </div>
+  )
 
   return (
     <Layout>
@@ -37,7 +41,7 @@ const Level = ({ pageContext, data }) => {
                   <div className="flex flex-1 flex-col justify-end">
                     <div className="flex-0 px-4 py-1">
                       <div className="inline-block px-2 py-1 text-xl mr-2">
-                        {video.level}
+                        <DisplayLevel level={video.level} />
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
                         <Link to={`/tag/${video.tag}`}>{video.tag}</Link>

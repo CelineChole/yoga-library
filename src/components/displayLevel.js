@@ -1,4 +1,4 @@
-const displayLevel = (level) => {
+const DisplayLevel = ({level}) => {
   switch (level) {
     case 1:
       return "🧘"
@@ -11,4 +11,4 @@ const displayLevel = (level) => {
   }
 }
 
-export default displayLevel;
+export default DisplayLevel;
