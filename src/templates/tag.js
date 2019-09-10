@@ -1,5 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
+import DisplayLevel from "../components/displayLevel"
 import { Link, graphql } from "gatsby"
 
 const Tag = ({ pageContext, data }) => {
@@ -36,7 +37,7 @@ const Tag = ({ pageContext, data }) => {
                   <div className="flex flex-1 flex-col justify-end">
                     <div className="flex-0 px-4 py-1">
                       <div className="inline-block px-2 py-1 text-xl mr-2">
-                        {video.level}
+                        <DisplayLevel level={video.level} />
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
                         <Link to={`/duration/${video.duration}`}>
