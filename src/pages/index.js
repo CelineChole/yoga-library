@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import displayLevel from "../utilities/displayLevel"
+import sortList from "../utilities/sortList"
 
 import SEO from "../components/seo"
 
@@ -29,44 +30,7 @@ const IndexPage = props => {
   const [sort, setSort] = useState("level")
   const [sortDescending, setSortDescending] = useState(true)
 
-  const sortList = (sortBy, descending) => {
-    let sortedList = videos.slice()
-
-    switch (sortBy) {
-      case "duration":
-        sortedList.sort((a, b) => parseInt(b.duration) - a.duration)
-        break
-
-      case "level":
-        sortedList.sort((a, b) => b.level - a.level)
-        break
-
-      case "channel":
-        sortedList.sort((a, b) => b.channel.localeCompare(a.channel))
-        break
-
-      case "style":
-        sortedList.sort((a, b) =>
-          ("" + b.yogastyle).localeCompare("" + a.yogastyle)
-        )
-        break
-
-      case "tag":
-        sortedList.sort((a, b) => ("" + b.tag).localeCompare("" + a.tag))
-        break
-
-      default:
-        break
-    }
-
-    if (descending) {
-      sortedList.reverse()
-    }
-
-    return sortedList
-  }
-
-  const sortedList = sortList(sort, sortDescending)
+  const sortedList = sortList(videos, sort, sortDescending)
 
   return (
     <>
