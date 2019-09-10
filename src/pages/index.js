@@ -38,7 +38,7 @@ const IndexPage = props => {
         break
 
       case "level":
-        sortedList.sort((a, b) => b.level.length - a.level.length)
+        sortedList.sort((a, b) => b.level - a.level)
         break
 
       case "channel":
@@ -108,7 +108,7 @@ const IndexPage = props => {
                   className="text-xs text-grey-dark"
                   htmlFor="toggleSortDescending"
                 >
-                  {sortDescending ? "↓" : "↑"}
+                  {sortDescending ? "↑" : "↓"}
                 </label>
               </div>
             </div>
