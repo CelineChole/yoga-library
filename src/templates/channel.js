@@ -22,7 +22,7 @@ const Channel = ({ pageContext, data }) => {
   return (
     <Layout>
     <div className="flex flex-col">
-          <SortFilters sort={sort} setSort={setSort} sortDescending={sortDescending} setSortDescending={setSortDescending} />
+          <SortFilters sort={sort} setSort={setSort} sortDescending={sortDescending} setSortDescending={setSortDescending} hidden="channel" />
       <div className="px-6 md:px-8">
         <h1 className="mb-4 text-xl font-bold">{channelHeader}</h1>
         <div className="flex -mx-3 flex-wrap">

@@ -6,6 +6,7 @@ export const SortFilters = ({
   setSort,
   sortDescending,
   setSortDescending,
+  hidden
 }) => {
   return (
     <section className="flex flex-col px-8 md:mb-5">
