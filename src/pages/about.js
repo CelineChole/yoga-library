@@ -15,24 +15,31 @@ const About = props => {
           </div>
           <div className="md:text-lg mb-4 md:mb-6 flex-1">
             <span className="font-semibold italic">Yogi Library</span> is my
-            collection of videos to practice yoga. Videos can be viewed by YouTube channel, duration, yoga style and tags. 
-          <div className="md:text-lg">
-            Click on{" "}
-            <Link
-              className="text-accent-3 italic hover:font-semibold"
-              to="/filters"
-            >
-              filters
-            </Link>{" "}
-            to see all the available options.
+            collection of videos to practice yoga. Videos can be viewed by
+            YouTube channel, duration, yoga style and tags.
+            <div className="md:text-lg">
+              Click on{" "}
+              <Link
+                className="text-accent-3 italic hover:font-semibold"
+                to="/filters"
+              >
+                filters
+              </Link>{" "}
+              to see all the available options.
+            </div>
           </div>
-          </div>
-          <div>
+          <div className="hidden md:inline-block">
             🧘 Beginner | 🧘🧘 Intermediate | 🧘🧘🧘 Advanced
           </div>
-          <div>
-            🕒 All durations are rounded.
+          <div className="md:hidden">
+            <div>Levels</div>
+            <ul>
+              <li>🧘 Beginner</li>
+              <li>🧘🧘 Intermediate</li>
+              <li>🧘🧘🧘 Advanced</li>
+            </ul>
           </div>
+          <div className="pt-2">🕒 All durations are rounded.</div>
           <div className="md:pt-10 pt-4">
             Built with{" "}
             <a
