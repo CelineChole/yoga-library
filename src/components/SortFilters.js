@@ -16,7 +16,7 @@ export const SortFilters = ({
         <StateUpdateText value="duration" state={sort} setState={setSort} />
         <StateUpdateText value="channel" state={sort} setState={setSort} />
 
-        <div className="ml-3">
+        <div className="md:ml-3">
           <div className="form-switch inline-block align-middle">
             <input
               type="checkbox"

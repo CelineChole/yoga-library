@@ -37,7 +37,9 @@ const Tag = ({ pageContext, data }) => {
                   <div className="flex flex-1 flex-col justify-end">
                     <div className="flex-0 px-4 py-1">
                       <div className="inline-block px-2 py-1 text-xl mr-2">
+                      <Link to={`/level/${video.level}`}>
                         <DisplayLevel level={video.level} />
+                      </Link>
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
                         <Link to={`/duration/${video.duration}`}>
