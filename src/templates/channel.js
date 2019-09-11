@@ -1,6 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from "../components/layout"
 import { Link, graphql } from "gatsby"
+import DisplayLevel from "../components/displayLevel"
+import { SortFilters } from "../components/SortFilters";
+import sortList from "../utilities/sortList"
 
 const Channel = ({ pageContext, data }) => {
   const { channel } = pageContext
@@ -9,12 +12,21 @@ const Channel = ({ pageContext, data }) => {
     totalCount === 1 ? "" : "s"
   } for "${channel}" YouTube channel `
 
+  const videos = nodes
+
+  const [sort, setSort] = useState("level")
+  const [sortDescending, setSortDescending] = useState(true)
+
+  const sortedList = sortList(videos, sort, sortDescending)
+
   return (
     <Layout>
-      <main className="px-6 md:px-8">
+    <div className="flex flex-col">
+          <SortFilters sort={sort} setSort={setSort} sortDescending={sortDescending} setSortDescending={setSortDescending} />
+      <div className="px-6 md:px-8">
         <h1 className="mb-4 text-xl font-bold">{channelHeader}</h1>
         <div className="flex -mx-3 flex-wrap">
-          {nodes.map(video => {
+          {sortedList.map(video => {
             return (
               <div
                 key={video.poseid}
@@ -36,7 +48,7 @@ const Channel = ({ pageContext, data }) => {
                   <div className="flex flex-1 flex-col justify-end">
                     <div className="flex-0 px-4 py-1">
                       <div className="inline-block px-2 py-1 text-xl mr-2">
-                        {video.level}
+                        <DisplayLevel level={video.level} />
                       </div>
                       <div className="inline-block px-2 py-1 text-sm font-medium text-accent-3 mr-2">
                         <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
@@ -55,7 +67,8 @@ const Channel = ({ pageContext, data }) => {
             )
           })}
         </div>
-      </main>
+      </div>
+      </div>
     </Layout>
   )
 }
