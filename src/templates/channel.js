@@ -38,7 +38,7 @@ const Channel = ({ pageContext, data }) => {
                   key={video.poseId}
                   className="flex flex-wrap md:w-1/4 xl:w-1/8 px-2 my-4 md:px-3"
                 >
-                  <VideoCard video={video} hidden="channels" />
+                  <VideoCard video={video} hidden="channel" />
                 </div>
               )
             })}
