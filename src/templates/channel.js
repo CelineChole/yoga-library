@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import { graphql } from "gatsby"
 import { SortFilters } from "../components/SortFilters";
 import sortList from "../utilities/sortList"
-import { VideoCard } from "../components/VideoCard"
+import { VideoCardSmall } from "../components/VideoCardSmall"
 
 const Channel = ({ pageContext, data }) => {
   const { channel } = pageContext
@@ -28,7 +28,7 @@ const Channel = ({ pageContext, data }) => {
         <div className="flex -mx-3 flex-wrap">
           {sortedList.map(video => {
             return (
-              <VideoCard key={video.poseId} video={video} hidden="channels" />
+              <VideoCardSmall key={video.poseId} video={video} hidden="channels" />
             )
           })}
         </div>

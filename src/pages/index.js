@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 import { graphql } from "gatsby"
 import { SortFilters } from "../components/SortFilters";
-import { VideoCard } from "../components/VideoCard"
+import { VideoCardLarge } from "../components/VideoCardLarge"
 
 const IndexPage = props => {
   const videos = props.data.allGoogleSheetMasterRow.nodes
@@ -25,7 +25,7 @@ const IndexPage = props => {
           <div className="flex flex-wrap px-6 md:px-8">
             {sortedList.map(video => {
               return (
-                <VideoCard key={video.poseid} video={video} />
+                <VideoCardLarge key={video.poseid} video={video} />
               )
             })}
           </div>

@@ -1,10 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
-import DisplayLevel from "../components/displayLevel"
+import DisplayLevel from "./displayLevel"
 
-export const VideoCard = ({ video, hidden = "" }) => {
+export const VideoCardSmall = ({ video, hidden = "" }) => {
   return (
-    <div key={video.poseid} className="md:w-1/2 relative lg:w-1/3 px-3 my-4">
+    <div key={video.poseid} className="md:w-1/4 relative lg:w-1/4 xl:w-1/5 px-3 my-4">
       <div className="flex flex-col h-full rounded overflow-hidden hover:text-accent-3 shadow-lg hover:bg-gray-100">
         <a href={video.url} target="_blank">
           <img className="w-full" src={video.thumbnail} alt={video.title} />
