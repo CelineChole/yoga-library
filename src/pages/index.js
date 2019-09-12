@@ -25,7 +25,7 @@ const IndexPage = props => {
           <div className="flex flex-wrap px-6 md:px-8">
             {sortedList.map(video => {
               return (
-                <VideoCard video={video} />
+                <VideoCard key={video.poseid} video={video} />
               )
             })}
           </div>

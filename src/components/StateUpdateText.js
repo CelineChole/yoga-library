@@ -1,9 +1,6 @@
 import React from "react"
 
-export const StateUpdateText = ({ state, setState, value, display, hidden }) => {
-  console.log('hey', value)
-  console.log('hidden', hidden)
-  // const blop = value.filter(v => v !== {hidden})
+export const StateUpdateText = ({ state, setState, value, display }) => {
   const displayText =
     display || value.slice(0, 1).toUpperCase() + value.slice(1)
   return (

@@ -72,6 +72,7 @@ export const pageQuery = graphql`
     allGoogleSheetMasterRow(filter: { tag: { eq: $tag } }) {
       nodes {
         title
+        poseid
         url
         level
         thumbnail
