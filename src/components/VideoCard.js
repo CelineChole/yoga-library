@@ -23,9 +23,11 @@ export const VideoCard = ({ video, hidden = "" }) => {
               <DisplayLevel level={video.level} />
             </Link>
           </div>
-          <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
-            <Link to={`/duration/${video.duration}`}>{video.duration} min</Link>
-          </div>
+          {hidden !== "duration" && (
+            <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
+              <Link to={`/duration/${video.duration}`}>{video.duration} min</Link>
+            </div>
+          )}
           <div className="inline-block px-3 py-1 rounded text-sm font-semibold hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
             <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
           </div>
