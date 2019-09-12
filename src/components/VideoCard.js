@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import DisplayLevel from "../components/displayLevel"
 
-export const VideoCard = ({ video }) => {
+export const VideoCard = ({ video, hidden = "" }) => {
   return (
     <div key={video.poseid} className="md:w-1/2 relative lg:w-1/3 px-3 my-4">
       <div className="flex flex-col h-full rounded overflow-hidden hover:text-accent-3 shadow-lg hover:bg-gray-100">
@@ -30,11 +30,13 @@ export const VideoCard = ({ video }) => {
               <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
             </div>
           </div>
-          <div className="px-6 py-1 mb-2">
-            <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
-              <Link to={`/channel/${video.channel}`}>📺 {video.channel}</Link>
-            </span>
-          </div>
+          {hidden !== "channel" && (
+            <div className="px-6 py-1 mb-2">
+              <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
+                <Link to={`/channel/${video.channel}`}>📺 {video.channel}</Link>
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </div>
