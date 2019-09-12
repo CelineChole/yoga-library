@@ -47,16 +47,18 @@ const Filters = props => {
           <div className="py-2 md:p-4 md:px-2">
             <h1 className="text-xl text-center font-semibold py-2">Duration</h1>
             <div className="flex flex-wrap justify-center">
-              {durations.sort((a,b) => parseInt(a) - parseInt(b)).map(duration => {
-                return (
-                  <Button
-                    name={duration}
-                    type="duration"
-                    customLabel={`${duration} min`}
-                    key={duration}
-                  />
-                )
-              })}
+              {durations
+                .sort((a, b) => parseInt(a) - parseInt(b))
+                .map(duration => {
+                  return (
+                    <Button
+                      name={duration}
+                      type="duration"
+                      customLabel={`${duration} min`}
+                      key={duration}
+                    />
+                  )
+                })}
             </div>
           </div>
           <div className="py-2 md:p-4 md:px-2">
