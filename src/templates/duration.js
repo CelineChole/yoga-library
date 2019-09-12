@@ -36,7 +36,7 @@ const Duration = ({ pageContext, data }) => {
               return (
                 <div
                   key={video.poseid}
-                  className="md:w-1/4 relative lg:w-1/5 xl:w-1/8 px-3 my-4"
+                  className="md:w-1/4 relative xl:w-1/8 px-3 my-4"
                 >
                   <div className="flex flex-col h-full rounded overflow-hidden hover:text-accent-3 shadow-lg hover:bg-gray-100">
                     <a href={video.url} target="_blank">
