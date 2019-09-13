@@ -18,11 +18,13 @@ export const VideoCard = ({ video, hidden = "" }) => {
       </a>
       <div className="flex flex-1 flex-col justify-end">
         <div className="flex-0 px-6 py-1">
-          <div className="inline-block px-3 py-1 text-xl mr-2">
-            <Link to={`/level/${video.level}`}>
-              <DisplayLevel level={video.level} />
-            </Link>
-          </div>
+          {hidden !== "level" && (
+            <div className="inline-block px-3 py-1 text-xl mr-2">
+              <Link to={`/level/${video.level}`}>
+                <DisplayLevel level={video.level} />
+              </Link>
+            </div>
+          )}
           {hidden !== "duration" && (
             <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
               <Link to={`/duration/${video.duration}`}>{video.duration} min</Link>
