@@ -35,7 +35,7 @@ const Channel = ({ pageContext, data }) => {
             {sortedList.map(video => {
               return (
                 <div
-                  key={video.poseId}
+                  key={video.poseid}
                   className="flex flex-wrap md:w-1/4 xl:w-1/8 px-2 my-4 md:px-3"
                 >
                   <VideoCard video={video} hidden="channel" />
