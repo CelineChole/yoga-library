@@ -9,7 +9,7 @@ export const SortFilters = ({
   hidden,
 }) => {
   return (
-    <section className="flex flex-col px-8 md:mb-5">
+    <section className="flex flex-col mb-3 px-8 md:mb-5">
       <div className="uppercase text-xs text-gray-600">Sort by:</div>
       <div className="flex items-center flex-wrap">
         {hidden !== "level" && (
