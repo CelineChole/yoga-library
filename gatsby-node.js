@@ -1,5 +1,18 @@
 const path = require("path")
 
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `googleSheetMasterRow`) {
+    const tags = node.tag ? node.tag.split(', ') : []
+
+    createNodeField({
+      name: `tags`,
+      node,
+      value: tags
+    })
+  }
+}
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
@@ -17,7 +30,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         distinct(field: duration)
       }
       tagGroup: allGoogleSheetMasterRow {
-        distinct(field: tag)
+        distinct(field: fields___tags)
       }
       levelGroup: allGoogleSheetMasterRow {
         distinct(field: level)
