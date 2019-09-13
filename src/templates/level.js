@@ -67,6 +67,9 @@ export const pageQuery = graphql`
         level
         tag
         poseid
+        fields {
+          tags
+        }
       }
       totalCount
     }
