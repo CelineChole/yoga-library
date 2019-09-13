@@ -16,7 +16,7 @@ export const VideoCard = ({ video, hidden = "" }) => {
           </div>
         </div>
       </a>
-      <div className="flex flex-1 flex-col justify-end">
+      <div className="flex flex-1 flex-col mb-2 justify-end">
         <div className="flex-0 px-6 py-1">
           {hidden !== "level" && (
             <div className="inline-block px-3 py-1 text-xl mr-2">
@@ -35,7 +35,7 @@ export const VideoCard = ({ video, hidden = "" }) => {
           </div>
         </div>
         {hidden !== "channel" && (
-          <div className="px-6 py-1 mb-2">
+          <div className="px-6 py-1">
             <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
               <Link to={`/channel/${video.channel}`}>📺 {video.channel}</Link>
             </span>
