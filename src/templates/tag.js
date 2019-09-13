@@ -62,6 +62,9 @@ export const pageQuery = graphql`
         thumbnail
         channel
         duration
+        fields {
+          tags
+        }
       }
       totalCount
     }

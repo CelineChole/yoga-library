@@ -58,8 +58,10 @@ export const data = graphql`
         title
         url
         yogastyle
-        tag
         thumbnail
+        fields {
+          tags
+        }
       }
     }
   }

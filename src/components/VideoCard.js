@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import DisplayLevel from "./displayLevel"
 
 export const VideoCard = ({ video, hidden = "" }) => {
+  const allTags = video.fields.tags || []
   return (
     <div
       key={video.poseid}
@@ -30,8 +31,14 @@ export const VideoCard = ({ video, hidden = "" }) => {
               <Link to={`/duration/${video.duration}`}>{video.duration} min</Link>
             </div>
           )}
-          <div className="inline-block px-3 py-1 rounded text-sm font-semibold hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
-            <Link to={`/tag/${video.tag}`}>{video.tag}</Link>
+          <div className="py-1 text-sm font-semibold text-accent-2 mr-1">
+            {allTags.map(tag => {
+              return (
+                <div className="m-1 py-1 px-2 rounded hover:bg-accent-3 hover:text-white inline-block">
+                <Link key={tag} to={`/tag/${tag}`}>{tag}</Link>
+                </div>
+              )
+            })}
           </div>
         </div>
         {hidden !== "channel" && (
