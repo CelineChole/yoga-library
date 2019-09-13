@@ -83,7 +83,7 @@ export const data = graphql`
       distinct(field: channel)
     }
     tags: allGoogleSheetMasterRow {
-      distinct(field: tag)
+      distinct(field: fields___tags)
     }
     duration: allGoogleSheetMasterRow(sort: { fields: duration }) {
       distinct(field: duration)

@@ -53,7 +53,7 @@ export default Tag
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allGoogleSheetMasterRow(filter: { tag: { eq: $tag } }) {
+    allGoogleSheetMasterRow(filter: {fields: {tags: {eq: $tag }}}) {
       nodes {
         title
         poseid
