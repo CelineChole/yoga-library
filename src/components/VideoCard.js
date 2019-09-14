@@ -17,42 +17,42 @@ export const VideoCard = ({ video, hidden = "" }) => {
           </div>
         </div>
       </a>
-      <div className="flex flex-1 flex-col mb-2 justify-end">
-        <div className="flex-0 px-6 py-1">
-          {hidden !== "level" && (
-            <div className="inline-block px-3 py-1 text-xl mr-2">
+      <div className="px-6 py-1 flex flex-wrap flex-1 flex-col mb-2 justify-end">
+        <div className="flex-0">
+          {hidden !== "duration" && (
+            <div className="inline-block px-3 py-2 text-sm rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
+              <Link to={`/duration/${video.duration}`}>
+              {video.duration} min
+              </Link>
+            </div>
+          )}
+            {allTags.map(tag => {
+              return (
+                <div
+                  key={tag}
+                  className="mr-2 my-1 py-2 px-2 text-sm rounded text-accent-2 bg-gray-200 hover:bg-accent-3 hover:text-white inline-block"
+                >
+                  <Link to={`/tag/${tag}`}>🏷️{tag}</Link>
+                </div>
+              )
+            })}
+        </div>
+        <div className="flex mt-2">
+        {hidden !== "channel" && (
+          <div className="">
+            <span className="inline-block bg-gray-200 rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
+              <Link to={`/channel/${video.channel}`}>📺{video.channel}</Link>
+            </span>
+          </div>
+        )}
+        {hidden !== "level" && (
+            <div className="px-3 py-1 text-xl">
               <Link to={`/level/${video.level}`}>
                 <DisplayLevel level={video.level} />
               </Link>
             </div>
           )}
-          {hidden !== "duration" && (
-            <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
-              <Link to={`/duration/${video.duration}`}>
-                {video.duration} min
-              </Link>
-            </div>
-          )}
-          <div className="py-1 text-sm font-semibold text-accent-2 mr-1">
-            {allTags.map(tag => {
-              return (
-                <div
-                  key={tag}
-                  className="m-1 py-1 px-2 rounded hover:bg-accent-3 hover:text-white inline-block"
-                >
-                  <Link to={`/tag/${tag}`}>{tag}</Link>
-                </div>
-              )
-            })}
-          </div>
         </div>
-        {hidden !== "channel" && (
-          <div className="px-6 py-1">
-            <span className="inline-block bg-gray-200 rounded px-3 py-1 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
-              <Link to={`/channel/${video.channel}`}>📺 {video.channel}</Link>
-            </span>
-          </div>
-        )}
       </div>
     </div>
   )
