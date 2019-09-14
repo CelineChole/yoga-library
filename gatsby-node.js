@@ -20,6 +20,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const durationTemplate = path.resolve("src/templates/duration.js")
   const tagTemplate = path.resolve("src/templates/tag.js")
   const levelTemplate = path.resolve("src/templates/level.js")
+  const typeTemplate = path.resolve("src/templates/type.js")
 
   const result = await graphql(`
     {
@@ -34,6 +35,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
       levelGroup: allGoogleSheetMasterRow {
         distinct(field: level)
+      }
+      typeGroup: allGoogleSheetMasterRow {
+        distinct(field: yogatype)
       }
     }
   `)
@@ -96,6 +100,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: levelTemplate,
       context: {
         level: parseInt(level),
+      },
+    })
+  })
+
+  // Extract yogaType data from query
+  const types = result.data.typeGroup.distinct
+
+  // Make yogaType pages
+  types.forEach(type => {
+    createPage({
+      path: `/type/${type}/`,
+      component: typeTemplate,
+      context: {
+        type: type,
       },
     })
   })

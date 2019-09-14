@@ -6,7 +6,7 @@ const Filters = props => {
   const tags = props.data.tags.distinct
   const channels = props.data.channels.distinct
   const durations = props.data.duration.distinct
-  const styles = props.data.yogastyle.distinct
+  const types = props.data.yogatype.distinct
 
   const Button = ({ name, type, customLabel }) => {
     const label = customLabel || name
@@ -62,10 +62,10 @@ const Filters = props => {
             </div>
           </div>
           <div className="py-2 md:p-4 md:px-2">
-            <h1 className="text-xl text-center font-semibold py-2">Styles</h1>
+            <h1 className="text-xl text-center font-semibold py-2">Types</h1>
             <div className="flex flex-wrap justify-center">
-              {styles.map(style => {
-                return <Button name={style} type="styles" key={style} />
+              {types.map(type => {
+                return <Button name={type} type="type" key={type} />
               })}
             </div>
           </div>
@@ -88,8 +88,8 @@ export const data = graphql`
     duration: allGoogleSheetMasterRow(sort: { fields: duration }) {
       distinct(field: duration)
     }
-    yogastyle: allGoogleSheetMasterRow(sort: { fields: yogastyle }) {
-      distinct(field: yogastyle)
+    yogatype: allGoogleSheetMasterRow(sort: { fields: yogatype }) {
+      distinct(field: yogatype)
     }
     language: allGoogleSheetMasterRow(sort: { fields: language }) {
       distinct(field: language)

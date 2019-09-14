@@ -57,7 +57,7 @@ export const data = graphql`
         duration
         title
         url
-        yogastyle
+        yogatype
         thumbnail
         fields {
           tags

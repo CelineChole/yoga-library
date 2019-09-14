@@ -14,9 +14,9 @@ const sortList = (videos, sortBy, descending) => {
       sortedList.sort((a, b) => b.channel.localeCompare(a.channel))
       break
 
-    case "style":
+    case "type":
       sortedList.sort((a, b) =>
-        ("" + b.yogastyle).localeCompare("" + a.yogastyle)
+        ("" + b.yogatype).localeCompare("" + a.yogatype)
       )
       break
 
