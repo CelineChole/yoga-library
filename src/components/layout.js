@@ -34,11 +34,24 @@ const Layout = ({ children }) => {
               </Link>
             </h1>
           </div>
-          <div className="text-lg text-gray-200 hover:font-semibold pr-4">
-            <Link to="/about">About</Link>
+          <div class="block lg:hidden">
+            <button class="flex items-center px-3 py-2 border rounded text-gray-300 hover:text-white hover:border-white">
+              <svg
+                class="fill-current h-3 w-3"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
           </div>
-          <div className="text-lg text-gray-200 hover:font-semibold">
-            <Link to="/filters">Filters</Link>
+          <div className="hidden lg:block">
+            <div className="text-lg text-gray-200 mr-2">
+              <Link className="hover:font-semibold mr-5" to="/about">About</Link>
+            
+              <Link className="hover:font-semibold" to="/filters">Filters</Link>
+            </div>
           </div>
         </div>
       </header>
