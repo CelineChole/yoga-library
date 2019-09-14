@@ -39,14 +39,12 @@ export const VideoCard = ({ video, hidden = "" }) => {
         </div>
         <div className="flex mt-2">
         {hidden !== "channel" && (
-          <div className="">
-            <span className="inline-block bg-gray-200 rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
+            <div className="bg-gray-200 rounded px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-accent-3 hover:text-white">
               <Link to={`/channel/${video.channel}`}>📺{video.channel}</Link>
-            </span>
-          </div>
+            </div>
         )}
         {hidden !== "level" && (
-            <div className="px-3 py-1 text-xl">
+            <div className="py-1 pl-3 text-xl">
               <Link to={`/level/${video.level}`}>
                 <DisplayLevel level={video.level} />
               </Link>
