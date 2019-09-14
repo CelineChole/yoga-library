@@ -28,14 +28,19 @@ export const VideoCard = ({ video, hidden = "" }) => {
           )}
           {hidden !== "duration" && (
             <div className="inline-block px-3 py-1 text-sm font-semibold rounded bg-gray-200 hover:bg-accent-3 hover:text-white text-accent-2 mr-2">
-              <Link to={`/duration/${video.duration}`}>{video.duration} min</Link>
+              <Link to={`/duration/${video.duration}`}>
+                {video.duration} min
+              </Link>
             </div>
           )}
           <div className="py-1 text-sm font-semibold text-accent-2 mr-1">
             {allTags.map(tag => {
               return (
-                <div className="m-1 py-1 px-2 rounded hover:bg-accent-3 hover:text-white inline-block">
-                <Link key={tag} to={`/tag/${tag}`}>{tag}</Link>
+                <div
+                  key={tag}
+                  className="m-1 py-1 px-2 rounded hover:bg-accent-3 hover:text-white inline-block"
+                >
+                  <Link to={`/tag/${tag}`}>{tag}</Link>
                 </div>
               )
             })}
