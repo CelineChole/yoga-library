@@ -51,8 +51,8 @@ const Type = ({ pageContext, data }) => {
 export default Type
 
 export const pageQuery = graphql`
-  query($yogatype: String) {
-    allGoogleSheetMasterRow(filter: { yogatype: { eq: $yogatype } }) {
+  query($type: String) {
+    allGoogleSheetMasterRow(filter: { yogatype: { eq: $type } }) {
       nodes {
         title
         channel
