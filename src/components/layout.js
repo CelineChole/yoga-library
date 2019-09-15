@@ -81,7 +81,7 @@ const Layout = ({ children }) => {
             </a>{" "}
             • {new Date().getFullYear()} •{" "}
             <Link to="/" className="italic hover:font-semibold">
-              yogi-library.surge.sh
+              yogilibrary.com
             </Link>
           </div>
         </div>
