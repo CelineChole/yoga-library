@@ -1,3 +1,10 @@
+require("dotenv").config()
+
+const sheetCredentials = {
+  client_email: process.env.GS_CLIENT_EMAIL || ``,
+  private_key: process.env.GS_PRIVATE_KEY.replace(/\\n/g, '\n') || ``,
+}
+
 module.exports = {
   siteMetadata: {
     title: `Yogi Library`,
@@ -46,7 +53,7 @@ module.exports = {
       options: {
         spreadsheetId: "13IimtmNvcrVqcvz8C2y-oxrBNRRvgityF1D9r70es1E",
         worksheetTitle: "Master",
-        credentials: require("./client_secret.json"),
+        credentials: sheetCredentials,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
