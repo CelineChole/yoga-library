@@ -12,6 +12,12 @@ module.exports = {
     author: `Céline Cholé`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-38000692-4",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
