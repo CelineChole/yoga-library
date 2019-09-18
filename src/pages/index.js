@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
 import sortList from "../utilities/sortList"
+import { graphql } from "gatsby"
 
 import SEO from "../components/seo"
 
-import { graphql } from "gatsby"
 import { SortFilters } from "../components/SortFilters"
 import { VideoCard } from "../components/VideoCard"
 
@@ -66,3 +66,4 @@ export const data = graphql`
     }
   }
 `
+
