@@ -5,10 +5,8 @@ import { SortFilters } from "../components/SortFilters"
 import sortList from "../utilities/sortList"
 import { VideoCard } from "../components/VideoCard"
 import DisplayLevel from "../components/displayLevel"
-import { test } from "../pages/data";
 
 const Level = ({ pageContext, data }) => {
-  console.log('yo', test)
   const { level } = pageContext
   const { nodes, totalCount } = data.allGoogleSheetMasterRow
   const levelHeader = (
