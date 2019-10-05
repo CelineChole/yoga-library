@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "Céline Cholé",
   "dependencies": {
-    "gatsby": "^2.15.6",
+    "gatsby": "^2.15.28",
+    "gatsby-cli": "^2.7.53",
     "gatsby-image": "^2.2.17",
     "gatsby-plugin-google-analytics": "^2.1.16",
     "gatsby-plugin-manifest": "^2.2.13",
